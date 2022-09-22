@@ -114,7 +114,9 @@ button{
 #random{
     text-shadow: 0 -2px 9px rgb(0, 0, 0);
     color: rgb(254, 254, 254);
-    background: linear-gradient( rgb(255, 0, 0), rgb(0, 255, 242), rgb(18, 112, 253), rgb(116, 87, 243), rgb(25, 0, 255), rgb(0, 255, 0), rgb(251, 255, 0));
+    background: linear-gradient( rgb(255, 0, 0), 
+    rgb(0, 255, 242), rgb(18, 112, 253), rgb(116, 87, 243
+    ), rgb(25, 0, 255), rgb(0, 255, 0), rgb(251, 255, 0));
 }
 #erase{
     color: #fff;

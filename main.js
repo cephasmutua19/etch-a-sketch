@@ -60,19 +60,28 @@ inputSize();
 //Setting color on grid div on cursor movement
 //Get button colors
 function getButtons(){
-    
+
+    let removeBgColor = true;
     let randBoxes = drawingCanvas.querySelectorAll('div');
     
     randBoxes.forEach(function(boxDivColor){
         boxDivColor.addEventListener('mouseover', function(){
-        this.style.backgroundColor = divColor;
+            if(!removeBgColor){
+                this.style.backgroundColor = 'none';
+            }else {
+                this.style.backgroundColor = divColor;
+            }
     })});
 
     pickedColor.addEventListener('click', function(e){
         randBoxes.forEach(function(boxDivColor){
             boxDivColor.addEventListener('mouseover', function(){
             divColor = e.target.value
-            this.style.backgroundColor = divColor;
+            if(!removeBgColor){
+                this.style.backgroundColor = 'none';
+            }else {
+                this.style.backgroundColor = divColor;
+            }
         })});
     });
 
@@ -80,7 +89,11 @@ function getButtons(){
         randBoxes.forEach(function(boxDivColor){
             boxDivColor.addEventListener('mouseover', function(){
             divColor = e.target.value
-            this.style.backgroundColor = divColor;
+            if(!removeBgColor){
+                this.style.backgroundColor = 'none';
+            }else {
+                this.style.backgroundColor = divColor;
+            }
         })});
     });
     
@@ -89,7 +102,11 @@ function getButtons(){
         randBoxes.forEach(function(boxDivColor){
             boxDivColor.addEventListener('mouseover', function(){
             divColor = 'rgb(0, 0, 0)'
+            if(!removeBgColor){
+            this.style.backgroundColor = 'none';
+        }else {
             this.style.backgroundColor = divColor;
+        }
         })});
     });
     
@@ -98,7 +115,11 @@ function getButtons(){
         randBoxes.forEach(function(boxDivColor){
             boxDivColor.addEventListener('mouseover', function(){
             divColor = 'rgb(255, 255, 255)';
-            this.style.backgroundColor = divColor;
+            if(!removeBgColor){
+                this.style.backgroundColor = 'none';
+            }else {
+                this.style.backgroundColor = divColor;
+            }
         })});
     });
     
@@ -117,9 +138,18 @@ function getButtons(){
             let g = Math.floor(Math.random() * 256);
             let b = Math.floor(Math.random() * 256);
             divColor = `rgb(${r}, ${g}, ${b})`;
-            this.style.backgroundColor = divColor;
+            if(!removeBgColor){
+                this.style.backgroundColor = 'none';
+            }else {
+                this.style.backgroundColor = divColor;
+            }
         })});
         
+    });
+
+    drawingCanvas.addEventListener('click', () => {
+        
+        removeBgColor = !removeBgColor
     });
 
 };
